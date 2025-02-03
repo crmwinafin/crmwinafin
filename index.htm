@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <header class="w3-container w3-teal w3-center">
+        <h1>Mi Empresa con Win-Afin</h1>
+    </header>
+
+    <nav class="w3-bar w3-dark-grey">
+        <a href="#" class="w3-bar-item w3-button">Inicio</a>
+        <a href="#" class="w3-bar-item w3-button">Servicios</a>
+        <a href="#" class="w3-bar-item w3-button">Contacto</a>
+    </nav>
+
+ <div class="w3-container w3-center w3-animate-top">
+  <h1>Animation is Fun!</h1>
+  <p>The w3-animate-top class slides in an element from the top.</p>
+</div>
+
+    <main class="w3-row">
+        <div class="w3-col l8 m8 s12 w3-padding" id="main-content">
+            <!-- Este contenido será dinámico -->
+        </div>
+
+
+        <aside class="w3-col l4 m4 s12 w3-padding w3-light-grey" id="sidebar-content">
+            <!-- Este contenido será dinámico -->
+
+        </aside>
+    </main>
+
+[wa.blog=Blog-Inicial]  
+<br>
+[wa.blog=Novedades]  
+<br>
+[wa.blog=Tutorial]
+
+
+<div class="w3-container" style="width: 50%; margin: auto;">
+<div class="w3-container w3-teal">
+  <h2>Input Form</h2>
+</div>
+  <form class="w3-container">
+    <label class="w3-text-teal"><b>First Name</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text">
+
+    <label class="w3-text-teal"><b>Last Name</b></label>
+    <input class="w3-input w3-border w3-light-grey" type="text">
+
+    <button class="w3-btn w3-blue-grey">Register</button>
+  </form>
+</div>
+
+
+    <footer class="w3-container w3-teal w3-center">
+        <p> 2025 Mi Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function ver_servidor() {
+            // Simulación de carga de contenido del servidor
+            document.getElementById('main-content').innerHTML = "<h2>Bienvenido a nuestra pagina</h2><p>Este es el contenido principal recuperado del servidor.</p>";
+        }
+
+        function ver_lateral() {
+            // Simulación de carga de links de blogs
+            document.getElementById('sidebar-content').innerHTML = "<h3>Blogs Recientes</h3><ul><li><a href='#'>Blog 1</a></li><li><a href='#'>Blog 2</a></li><li><a href='#'>Blog 3</a></li></ul>";
+        }
+
+        // Llamamos a las funciones para cargar el contenido dinámico
+        ver_servidor();
+        ver_lateral();
+	reemplazarBlogs();
+
+
+	async function obtenerResultado(w_texto) {
+    		try {
+        		let response = await fetch("http://localhost/gethint.asp", {
+            		method: "POST",
+            		headers: {
+                		"Content-Type": "application/x-www-form-urlencoded"
+            		},
+            		body: w_texto
+        		});
+        		if (!response.ok) {
+            			throw new Error("Error en la solicitud: " + response.status);
+        		}
+       			let data = await response.text();
+         		return data; // DEVOLVER el resultado
+    		} catch (error) {
+        		console.error("Error:", error);
+        		return "Error en la solicitud"; // Manejo de error
+    		}
+	}
+	
+	async function reemplazarBlogs() {
+    		let contenido = document.body.innerHTML;
+    		let matches = [...contenido.matchAll(/\[wa\.blog=(.*?)\]/g)];
+    		for (let match of matches) {
+     		   let f_blog = match[1]; // Extraer el valor entre [wa.blog= ]
+			if (f_blog==" "){
+			}else{
+        			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + f_blog + "',1)");
+        			contenido = contenido.replace(match[0], abc_r);
+			}
+    		}
+    		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
+	}
+
+
+    </script>
+<script data-cfasync="false" src="http://localhost/cnt.asp?YmFzZTpDcm13aW5hZmluLHBhZ2U6MQ=="></script>
+</body>
+</html>
