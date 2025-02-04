@@ -3,13 +3,13 @@
 
 <title>Venta Producto</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/ISAPI/landing_page/w3.css">
+<link rel="stylesheet" href="/landing_page/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <head>
   <style>
     div.general{
-      background-image: url("/ISAPI/landing_page/fondo1.jpg");
+      background-image: url("/landing_page/fondo1.jpg");
       padding-top: 50px;
 	  padding-right: 0px;
 	  padding-bottom: 50px;
@@ -22,7 +22,7 @@
 
 <div class="w3-bar w3-red">
 	<div class="w3-col 13 m3 w3-container">
-    <img src="/ISAPI/landing_page/logo.jpg" class="w3-margin-left" alt="Norway" style="float:left;width:160px;height:50px;">
+    <img src="/landing_page/logo.jpg" class="w3-margin-left" alt="Norway" style="float:left;width:160px;height:50px;">
 	<div class="w3-container">
 		<a class="w3-margin-bottom w3-tiny">Desarrollo de Sistemas</a>
 		</div>
@@ -49,7 +49,7 @@
 
 <div class="w3-container w3-margin-left">
 
-  <form name="formulario_12" method="POST" action="gethint.asp" onsubmit="return enviar();">
+  <form name="formulario_12" method="POST" action="http://localhost/gethint.asp" onsubmit="return enviar();">
  	<div class="w3-col 13 m8 w3-container w3-margin-left">
       <h1 class="w3-text-white" style="text-shadow:2px 2px 0 #444">Facturación Electrónica Inmediata</h1>
       <h3 class="w3-text-blue" style="text-shadow:1px 1px 0 #444">Pase a Facturacion Electronica con facilidad y a un precio conveniente</h3>
@@ -121,7 +121,7 @@
 	
 	var sPaginaURL 	= window.location.search.substring(1);
 	var sPagina1	= sPaginaURL;
-	var macro_x = '<IMG SRC="/cnt.asp?'+sPagina1+'">';
+	var macro_x = '<IMG SRC="http://localhost/cnt.asp?'+sPagina1+'">';
 	document.getElementById("demo").innerHTML = macro_x;
 	
 
@@ -142,11 +142,11 @@
 
 		macro_d = btoa(macro_d + "@*" + sPaginaURL);
 
-	  	var macro_x = '<IMG SRC="/convert.asp?'+macro_d+'">';
+	  	var macro_x = '<IMG SRC="http://localhost/convert.asp?'+macro_d+'">';
 	  	document.getElementById("demo").innerHTML = macro_x;
 
 		var paso_tk = traslado_a(document.formulario_12.nombre.value);
-		window.location = '/ISAPI/marketing/gracias.htm?'+paso_tk; 
+		window.location = '/marketing/gracias.htm?'+paso_tk; 
 		return false;
 	}
 
