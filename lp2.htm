@@ -74,13 +74,13 @@
             </div>
             <button type="submit" class="btn">Inscribirme Ahora</button>
         </form>
-	<div id="demo" class="test2"></div>
     </div>
+    <div id="demo" class="test2"></div>
       <script>
 	
 	var sPaginaURL 	= window.location.search.substring(1);
 	var sPagina1	= sPaginaURL;
-	var macro_x = '<IMG SRC="https://crmwinafin.github.io/crmwinafin/cnt.asp?'+sPagina1+'">';
+	var macro_x = '<IMG SRC="http://localhost/cnt.asp?'+sPagina1+'">';
 	document.getElementById("demo").innerHTML = macro_x;
 	
 
@@ -101,7 +101,7 @@
 
 		macro_d = btoa(macro_d + "@*" + sPaginaURL);
 
-	  	var macro_x = '<IMG SRC="https://crmwinafin.github.io/crmwinafin/convert.asp?'+macro_d+'">';
+	  	var macro_x = '<IMG SRC="http://localhost/convert.asp?'+macro_d+'">';
 	  	document.getElementById("demo").innerHTML = macro_x;
 
 		var paso_tk = traslado_a(document.formulario_12.nombre.value);
