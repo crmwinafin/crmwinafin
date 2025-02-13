@@ -1,7 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4BSF4PFSZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4BSF4PFSZR');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
@@ -25,21 +33,21 @@
 
     <main class="w3-row">
         <div class="w3-col l8 m8 s12 w3-padding" id="main-content">
-            <!-- Este contenido será dinámico -->
+            <!-- Este contenido serÃ¡ dinÃ¡mico -->
         </div>
 
 
         <aside class="w3-col l4 m4 s12 w3-padding w3-light-grey" id="sidebar-content">
-            <!-- Este contenido será dinámico -->
+            <!-- Este contenido serÃ¡ dinÃ¡mico -->
 
         </aside>
     </main>
 
-[wa.blog=Blog-Inicial]  
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>  
 <br>
-[wa.blog=Novedades]  
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>  
 <br>
-[wa.blog=Tutorial]
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>
 
 
 <div class="w3-container" style="width: 50%; margin: auto;">
@@ -64,16 +72,16 @@
 
     <script>
         function ver_servidor() {
-            // Simulación de carga de contenido del servidor
+            // SimulaciÃ³n de carga de contenido del servidor
             document.getElementById('main-content').innerHTML = "<h2>Bienvenido a nuestra pagina</h2><p>Este es el contenido principal recuperado del servidor.</p>";
         }
 
         function ver_lateral() {
-            // Simulación de carga de links de blogs
+            // SimulaciÃ³n de carga de links de blogs
             document.getElementById('sidebar-content').innerHTML = "<h3>Blogs Recientes</h3><ul><li><a href='#'>Blog 1</a></li><li><a href='#'>Blog 2</a></li><li><a href='#'>Blog 3</a></li></ul>";
         }
 
-        // Llamamos a las funciones para cargar el contenido dinámico
+        // Llamamos a las funciones para cargar el contenido dinÃ¡mico
         ver_servidor();
         ver_lateral();
 	reemplazarBlogs();
@@ -103,7 +111,7 @@
     		let contenido = document.body.innerHTML;
     		let matches = [...contenido.matchAll(/\[wa\.blog=(.*?)\]/g)];
     		for (let match of matches) {
-     		   let f_blog = match[1]; // Extraer el valor entre [wa.blog= ]
+     		   let f_blog = match[1]; // Extraer el valor entre <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>
 			if (f_blog==" "){
 			}else{
         			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + f_blog + "',1)");
@@ -115,6 +123,6 @@
 
 
     </script>
-<script data-cfasync="false" src="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?YmFzZTpDcm13aW5hZmluLHBhZ2U6MQ=="></script>
-</body>
+
+<script data-cfasync="false" src="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?YmFzZTpJbnRlZ3JhY2lvbmVjdWFkb3IscGFnZTox"></script></body>
 </html>
