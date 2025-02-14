@@ -1,127 +1,90 @@
-
-<html>
-
-<title>Venta Producto</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://crmwinafin.github.io/crmwinafin/landing_page/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <style>
-    div.general{
-      background-image: url("https://crmwinafin.github.io/crmwinafin/fondo1.JPG");
-      padding-top: 50px;
-	  padding-right: 0px;
-	  padding-bottom: 50px;
-	  padding-left: 0px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castillo de la Memoria - Regístrate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .promo-image {
+            width: 50%;
+            border-radius: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="w3-bar w3-red">
-	<div class="w3-col 13 m3 w3-container">
-    <img src="https://crmwinafin.github.io/crmwinafin/landing_page/logo.jpg" class="w3-margin-left" alt="Norway" style="float:left;width:160px;height:50px;">
-	<div class="w3-container">
-		<a class="w3-margin-bottom w3-tiny">Desarrollo de Sistemas</a>
-		</div>
-	</div>
- 	<div class="w3-col 13 m3 w3-container">
-		<p class="w3-small">Escribenos directamente a:</p>
-		<i class="fa fa-envelope" style="font-size:24px"></i>
-		<a href="mailto:jose_velasco_c@hotmail.com?Subject=Saludos,%20Deseo%20Información%20del%20Producto" target="_top">jose_velasco_c@hotmail.com</a>
-	</div>
- 	<div class="w3-col 13 m3 w3-container">
-		<p class="w3-small">Llámanos directamente a:</p>
-		<i class="fa fa-phone" style="font-size:24px"></i>
-		<a href="tel:0979142868" target="_top">0979142868</a>
-	</div>
-	<div class="w3-col 13 m3 w3-container">
-		<p class="w3-small">Directo a Whatsapp:</p>
-		<i class="fa fa-whatsapp" style="font-size:24px;"></i>
-		<a href="https://wa.me/0979142868" target="_blank">0979142868</a>
-	</div>
-</div>
-
-<!-- Content -->
-<div  class="general">
-
-<div class="w3-container w3-margin-left">
-
-  <form name="formulario_12" method="POST" action="http://localhost/gethint.asp" onsubmit="return enviar();">
- 	<div class="w3-col 13 m8 w3-container w3-margin-left">
-      <h1 class="w3-text-white" style="text-shadow:2px 2px 0 #444">Facturación Electrónica Inmediata</h1>
-      <h3 class="w3-text-blue" style="text-shadow:1px 1px 0 #444">Pase a Facturacion Electronica con facilidad y a un precio conveniente</h3>
-	  
-	  <div class="w3-container w3-blue">
-	  <i class="fa fa-check-square-o" style="font-size:18px;"></i>
-	  <a style="font-size:18px;">No dependa de la lentitud en la velocidad del internet, la base de datos se instala en sus equipos</a>
-	  </div>
-
-	  <br>
-
-	  <div class="w3-container w3-blue">
-	  <i class="fa fa-check-square-o" style="font-size:18px;"></i>
-	  <a style="font-size:18px;">Recupera información de facturación electrónica que le han hecho, evitando el error al digitar</a>
-	  </div>
-
-	  <br>
-
-	  <div class="w3-container w3-blue">
-	  <i class="fa fa-check-square-o" style="font-size:18px;"></i>
-	  <a style="font-size:18px;">Puede usar el software en pocas horas, incluye migración de codificación de la clientes y productos de la empresa</a>
-	  </div>
-
-	  <br>
-
-	  <div class="w3-container w3-blue">
-	  <i class="fa fa-check-square-o" style="font-size:18px;"></i>
-	  <a style="font-size:18px;">Integrado a la Contabilidad y los anexos transaccionales SRI</a>
-	  </div>
-
+    <div class="container">
+        <h1>Regístrate en "El Palacio de la Memoria"!</h1>
+        <img src="https://crmwinafin.github.io/crmwinafin/imagen_promocional.jpg" alt="Castillo de la Memoria" class="promo-image">
+        <p>Descubre técnicas avanzadas para potenciar tu memoria y recordar con facilidad.</p>
+        <form name="formulario_12" method="POST" action="gethint.asp" onsubmit="return enviar();">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="fono">Teléfono:</label>
+                <input type="tel" id="fono" name="fono">
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa:</label>
+                <input id="empresa" name="empresa">
+            </div>
+            <button type="submit" class="btn">Inscribirme Ahora</button>
+        </form>
     </div>
-
-  <div class="w3-col 13 m3 w3-container w3-blue-grey w3-round-xlarge w3-margin-left">
-	<p></p>
-	<h5>Solicite ahora su ASESORIA DIGITAL</h5>
-	<p class="w3-margin-bottom w3-tiny">Complete el siguiente formulario para ser contactado por un Consultor Experto en Markeging Digital</p>
-
-	<div class="w3-section">
-      <label class="w3-small">Nombre:</label>
-	  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" id="nombre" name="nombre" required>
-    </div>
-
-	<div class="w3-section">
-	  <label class="w3-small">Correo:</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" id="email" name="email">
-    </div>
-
-	<div class="w3-section">
-	  <label class="w3-small">Teléfono contacto:</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" id="fono" name="fono">
-    </div>
-
-	<div class="w3-section">
-	  <label class="w3-small">Empresa:</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" id="empresa" name="empresa">
-    </div>
-  
-    <input type="submit" value="Solicitar Asesoría Gratis" class="w3-button w3-block w3-red">
-	<br>
-  
-  </div>
-	<div id="demo" class="test2"></div>
-
-  </form>
-</div>
-</div>
-  
+      <div id="demo" class="test2"></div>
   <script>
 	
 	var sPaginaURL 	= window.location.search.substring(1);
 	var sPagina1	= sPaginaURL;
-	var macro_x = '<IMG SRC="http://localhost/cnt.asp?'+sPagina1+'">';
+	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?'+sPagina1+'">';
 	document.getElementById("demo").innerHTML = macro_x;
 	
 
@@ -142,7 +105,7 @@
 
 		macro_d = btoa(macro_d + "@*" + sPaginaURL);
 
-	  	var macro_x = '<IMG SRC="http://localhost/convert.asp?'+macro_d+'">';
+	  	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/convert.asp?'+macro_d+'">';
 	  	document.getElementById("demo").innerHTML = macro_x;
 
 		var paso_tk = traslado_a(document.formulario_12.nombre.value);
@@ -225,8 +188,6 @@ function ver_fin(i_act,i_fin){
 	}
 	return v_retorno
 }
-
-
   </script>
 </body>
 </html>
