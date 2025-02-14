@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><!-- Google tag (gtag.js) -->
+<head>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BSF4PFSZR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -43,12 +45,11 @@
         </aside>
     </main>
 
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>  
+[wa.blog=Blog-Inicial]  
 <br>
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>  
+[wa.blog=Novedades]  
 <br>
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>
-
+[wa.blog=Tutorial]
 
 <div class="w3-container" style="width: 50%; margin: auto;">
 <div class="w3-container w3-teal">
@@ -114,7 +115,7 @@
      		   let f_blog = match[1]; // Extraer el valor entre <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="wa_blog_0"></div>
 			if (f_blog==" "){
 			}else{
-        			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + f_blog + "',1)");
+        			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Integracionecuador/" + f_blog + "',1)");
         			contenido = contenido.replace(match[0], abc_r);
 			}
     		}
@@ -124,5 +125,6 @@
 
     </script>
 
-<script data-cfasync="false" src="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?YmFzZTpJbnRlZ3JhY2lvbmVjdWFkb3IscGFnZTox"></script></body>
+<script data-cfasync="false" src="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?YmFzZTpJbnRlZ3JhY2lvbmVjdWFkb3IscGFnZTox"></script>
+</body>
 </html>
