@@ -96,16 +96,15 @@ and is wrapped around the whole page content, except for the footer in this exam
     		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
 	}
 
-	async function reemplazarPromo() {
-    		let contenido = document.body.innerHTML;
-		//let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
-		let abc_r = "hola mundo";
-    		document.querySelectorAll("*").forEach((element) => {
-        		if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) { // Solo texto
-            			element.innerHTML = element.innerHTML.replace(/\[home=promo\]/g, abc_r);
-        		}
-    		});
-	}
+async function reemplazarPromo() {
+    let contenido = document.body.innerHTML;
+    let abc_r = "hola mundo";
+    
+    contenido = contenido.replace(/\[home=promo\]/g, abc_r);
+    
+    document.body.innerHTML = contenido; // Reemplaza el contenido con la nueva versión
+}
+
 	
 </script>
 
