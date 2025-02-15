@@ -98,8 +98,9 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 	async function reemplazarPromo() {
     		let contenido = document.body.innerHTML;
-		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
-  		contenido = contenido.replace("[home=promo]", abc_r);
+		//let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
+  		//contenido = contenido.replace("[home=promo]", abc_r);
+  		contenido = contenido.replace("[home=promo]", "prueba de cambio");
     		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
 	}
 	
