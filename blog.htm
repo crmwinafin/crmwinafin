@@ -59,6 +59,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <script>
 	reemplazarBlogs();
+	reemplazarPromo();
+	
 	async function obtenerResultado(w_texto) {
     		try {
         		let response = await fetch("http://localhost/home.asp", {
@@ -93,6 +95,14 @@ and is wrapped around the whole page content, except for the footer in this exam
     		}
     		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
 	}
+
+	async function reemplazarPromo() {
+    		let contenido = document.body.innerHTML;
+		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
+  		contenido = contenido.replace("[home=promo]", abc_r);
+    		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
+	}
+	
 </script>
 
 </body>
