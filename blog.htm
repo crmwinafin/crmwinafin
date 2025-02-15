@@ -57,7 +57,42 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- END w3-content -->
 </div>
 
-
+<script>
+	reemplazarBlogs();
+	async function obtenerResultado(w_texto) {
+    		try {
+        		let response = await fetch("http://localhost/home.asp", {
+            		method: "POST",
+            		headers: {
+                		"Content-Type": "application/x-www-form-urlencoded"
+            		},
+            		body: w_texto
+        		});
+        		if (!response.ok) {
+            			throw new Error("Error en la solicitud: " + response.status);
+        		}
+       			let data = await response.text();
+         		return data; // DEVOLVER el resultado
+    		} catch (error) {
+        		console.error("Error:", error);
+        		return "Error en la solicitud"; // Manejo de error
+    		}
+	}
+	
+	async function reemplazarBlogs() {
+    		let contenido = document.body.innerHTML;
+    		let matches = [...contenido.matchAll(/\[wa\.blog=(.*?)\]/g)];
+    		for (let match of matches) {
+     		   let f_blog = match[1]; // Extraer el valor entre [wa.blog= ]
+      			if (f_blog==" "){
+			      }else{
+          			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + f_blog + "',1)");
+        		  	contenido = contenido.replace(match[0], abc_r);
+			      }
+    		}
+    		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
+	}
+</script>
 
 </body>
 </html>
