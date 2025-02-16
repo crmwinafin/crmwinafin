@@ -90,7 +90,7 @@ async function reemplazarBlogs() {
     let blogDiv = document.getElementById("blogContent");
 
     if (blogDiv && blogDiv.innerHTML.includes("[wa.blog=blog]")) {
-        let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
+        let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Integracionecuador/" + s_blog + "',1)");
         blogDiv.innerHTML = abc_r;
     }
 }
@@ -99,7 +99,7 @@ async function reemplazarPromo() {
     let promoDiv = document.getElementById("promoContent");
 
     if (promoDiv && promoDiv.innerHTML.includes("[home=promo]")) {
-		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
+		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Integracionecuador/[home=promo]',1)");
         promoDiv.innerHTML = abc_r; // Aquí reemplaza con lo que necesites
     }
 }
