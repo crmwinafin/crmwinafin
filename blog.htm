@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,13 +26,12 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Grid -->
 <div class="w3-row">
 
-<!-- Blog entries -->
-<div class="w3-col l8 s12">
 
-[wa.blog=blog]
+<div class="w3-col l8 s12">
+    <div id="blogContent">[wa.blog=blog]</div>
+</div>
 
 <!-- END BLOG ENTRIES -->
-</div>
 
 <!-- Introduction menu -->
 <div class="w3-col l4">
@@ -44,7 +44,9 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
   </div><hr>
   
-[home=promo]
+<div>
+    <div id="promoContent">[home=promo]</div>
+</div>
 
  
   
@@ -58,55 +60,51 @@ and is wrapped around the whole page content, except for the footer in this exam
 </div>
 
 <script>
-	reemplazarBlogs();
-	reemplazarPromo();
-	
-	async function obtenerResultado(w_texto) {
-    		try {
-        		let response = await fetch("http://localhost/home.asp", {
-            		method: "POST",
-            		headers: {
-                		"Content-Type": "application/x-www-form-urlencoded"
-            		},
-            		body: w_texto
-        		});
-        		if (!response.ok) {
-            			throw new Error("Error en la solicitud: " + response.status);
-        		}
-       			let data = await response.text();
-         		return data; // DEVOLVER el resultado
-    		} catch (error) {
-        		console.error("Error:", error);
-        		return "Error en la solicitud"; // Manejo de error
-    		}
-	}
-	
-	async function reemplazarBlogs() {
-		const s_blog = window.location.search.substring(1);
-    		let contenido = document.body.innerHTML;
-    		let matches = [...contenido.matchAll(/\[wa\.blog=(.*?)\]/g)];
-    		for (let match of matches) {
-     		   let f_blog = match[1]; // Extraer el valor entre [wa.blog= ]
-      			if (f_blog==" "){
-			}else{
-          			let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
-        		  	contenido = contenido.replace(match[0], abc_r);
-			}
-    		}
-    		document.body.innerHTML = contenido; // Actualizar el contenido con los reemplazos
-	}
+document.addEventListener("DOMContentLoaded", function() {
+    reemplazarBlogs();
+    reemplazarPromo();
+});
 
-async function reemplazarPromo() {
-    let contenido = document.body.innerHTML;
-    let abc_r = "hola mundo";
-    
-    contenido = contenido.replace(/\[home=promo\]/g, abc_r);
-    
-    document.body.innerHTML = contenido; // Reemplaza el contenido con la nueva versión
+async function obtenerResultado(w_texto) {
+    try {
+        let response = await fetch("https://winafin.norwayeast.cloudapp.azure.com/home.asp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: w_texto
+        });
+        if (!response.ok) {
+            throw new Error("Error en la solicitud: " + response.status);
+        }
+        let data = await response.text();
+        return data; // Devolver el resultado
+    } catch (error) {
+        console.error("Error:", error);
+        return "Error en la solicitud"; // Manejo de error
+    }
 }
 
-	
+async function reemplazarBlogs() {
+    const s_blog = window.location.search.substring(1);
+    let blogDiv = document.getElementById("blogContent");
+
+    if (blogDiv && blogDiv.innerHTML.includes("[wa.blog=blog]")) {
+        let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
+        blogDiv.innerHTML = abc_r;
+    }
+}
+
+async function reemplazarPromo() {
+    let promoDiv = document.getElementById("promoContent");
+
+    if (promoDiv && promoDiv.innerHTML.includes("[home=promo]")) {
+		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
+        promoDiv.innerHTML = abc_r; // Aquí reemplaza con lo que necesites
+    }
+}
 </script>
+
 
 </body>
 </html>
