@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function obtenerResultado(w_texto) {
     try {
-        let response = await fetch("http://localhost/home.asp", {
+        let response = await fetch("https://winafin.norwayeast.cloudapp.azure.com/home.asp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -90,17 +88,34 @@ async function reemplazarBlogs() {
     const s_blog = window.location.search.substring(1);
     let blogDiv = document.getElementById("blogContent");
 
-    if (blogDiv && blogDiv.innerHTML.includes("[wa.blog=blog]")) {
-        let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
-        blogDiv.innerHTML = abc_r;
+    if (blogDiv) {
+        let respuesta = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
+        
+        // Extraer y ejecutar los scripts manualmente
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = respuesta;
+
+        // Extraer todos los scripts y ejecutarlos
+        let scripts = tempDiv.getElementsByTagName("script");
+        for (let script of scripts) {
+            let nuevoScript = document.createElement("script");
+            nuevoScript.src = script.src; // Para scripts externos
+            nuevoScript.textContent = script.innerHTML; // Para scripts internos
+            document.body.appendChild(nuevoScript); // Añadir el script al documento
+        }
+
+        // Insertar el contenido sin los scripts
+        blogDiv.innerHTML = tempDiv.innerHTML.replace(/<script[\s\S]*?<\/script>/gi, "");
     }
 }
 
 async function reemplazarPromo() {
+    const s_blog = window.location.search.substring(1);
+    //alert(s_blog);
     let promoDiv = document.getElementById("promoContent");
 
     if (promoDiv && promoDiv.innerHTML.includes("[home=promo]")) {
-		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]',1)");
+		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]"+s_blog+"',1)");
         promoDiv.innerHTML = abc_r; // Aquí reemplaza con lo que necesites
     }
 }

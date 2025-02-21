@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
+    <script>
+        async function obtenerResultado(w_texto) {
+            try {
+                let response = await fetch("https://winafin.norwayeast.cloudapp.azure.com/home.asp", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: w_texto
+                });
+                if (!response.ok) {
+                    throw new Error("Error en la solicitud: " + response.status);
+                }
+                let data = await response.text();
+                return data; // Devolver el resultado
+            } catch (error) {
+                console.error("Error:", error);
+                return null; // Retorna null si hay un error
+            }
+        }
+
+        async function redirigir() {
+            document.getElementById("mensaje").innerText = "Cargando...";
+
+            const params = new URLSearchParams(window.location.search);
+            //alert(params);
+	    //const codigo = params.get("ddxy");
+	    const codigo = params;
+
+            if (!codigo) {
+                document.getElementById("mensaje").innerText = "Error: No se encontró el parámetro ddxy.";
+                return;
+            }
+
+	    const param_s = `comando=s.blog('Crmwinafin/','${codigo}')`;
+	    //const param_s = "comando=s.blog('Crmwinafin/','${codigo}')";
+
+	    //alert(param_s);
+
+            let link = await obtenerResultado(param_s);
+	    //link = "http://localhost/desarrollo.htm";            
+
+	    //alert(link);
+
+            if (link) {
+                window.location.href = link; // Redirigir al link recibido
+            } else {
+                document.getElementById("mensaje").innerText = "Error al obtener la URL de redirección.";
+            }
+        }
+
+        window.onload = redirigir;
+    </script>
+</head>
+<body>
+    <h2 id="mensaje">Cargando...</h2>
+</body>
+</html>
