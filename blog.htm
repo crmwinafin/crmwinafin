@@ -89,7 +89,7 @@ async function reemplazarBlogs() {
     let blogDiv = document.getElementById("blogContent");
 
     if (blogDiv) {
-        let respuesta = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/" + s_blog + "',1)");
+        let respuesta = await obtenerResultado("comando=s.blog('idtexto=articulo/Integracionecuador/" + s_blog + "',1)");
         
         // Extraer y ejecutar los scripts manualmente
         let tempDiv = document.createElement("div");
