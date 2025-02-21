@@ -115,7 +115,7 @@ async function reemplazarPromo() {
     let promoDiv = document.getElementById("promoContent");
 
     if (promoDiv && promoDiv.innerHTML.includes("[home=promo]")) {
-		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Crmwinafin/[home=promo]"+s_blog+"',1)");
+		let abc_r = await obtenerResultado("comando=s.blog('idtexto=articulo/Integracionecuador/[home=promo]"+s_blog+"',1)");
         promoDiv.innerHTML = abc_r; // Aquí reemplaza con lo que necesites
     }
 }
