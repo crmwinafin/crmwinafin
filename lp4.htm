@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuesta el Marcador</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://winafin.norwayeast.cloudapp.azure.com/empresas/Integracionecuador/download.jpg" alt="Imagen de los equipos">
+        <h2>Apuesta el Marcador</h2>
+        <form>
+            <div class="input-group">
+                <label>Marcador equipo 1</label>
+                <input type="number" name="team1" required>
+            </div>
+            <div class="input-group">
+                <label>Marcador equipo 2</label>
+                <input type="number" name="team2" required>
+            </div>
+            <div class="input-group">
+                <label>Ingrese su RUC</label>
+                <input type="text" name="ruc" required>
+            </div>
+            <div class="input-group">
+                <label>Número de depósito</label>
+                <input type="text" name="depositNumber" required>
+            </div>
+            <button type="submit">Registrar Apuesta</button>
+        </form>
+    </div>
+</body>
+</html>
