@@ -55,22 +55,22 @@
     Cta ahorros Produbanco 12050138850
 </h2>
         <h2>Apuesta el Marcador</h2>
-        <form>
+        <form name="formulario_12" method="POST" action="gethint.asp" onsubmit="return enviar();">
             <div class="input-group">
                 <label>Independiente del Valle</label>
-                <input type="number" name="team1" required>
+                <input type="number" id="nombre" name="nombre" required>
             </div>
             <div class="input-group">
                 <label>Universidad Católica</label>
-                <input type="number" name="team2" required>
+                <input type="number" id="email" name="email" required>
             </div>
             <div class="input-group">
                 <label>Ingrese su Cédula</label>
-                <input type="text" name="ruc" required>
+                <input type="text" id="fono" required>
             </div>
             <div class="input-group">
                 <label>Número de depósito</label>
-                <input type="text" name="depositNumber" required>
+                <input type="text" id="empresa" name="empresa" required>
             </div>
             <button type="submit">Registrar Apuesta</button>
         </form>
