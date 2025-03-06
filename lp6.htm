@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuesta el Marcador</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://winafin.norwayeast.cloudapp.azure.com/empresas/Integracionecuador/2C.JPEG" alt="Imagen de los equipos">
+<h2 style="font-size: 24px; color: red; text-align: center; margin-bottom: 15px;">
+    Cta ahorros Produbanco 12050138850
+</h2>
+        <h2>Apuesta el Marcador Valor $ 2 USD</h2>
+        <form name="formulario_12" method="POST" action="gethint.asp" onsubmit="return enviar();">
+            <div class="input-group">
+                <label>Independiente del Valle</label>
+                <input type="number" id="nombre" name="nombre" required>
+            </div>
+            <div class="input-group">
+                <label>Universidad Católica</label>
+                <input type="number" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Ingrese su Cédula</label>
+                <input type="text" id="fono" required>
+            </div>
+            <div class="input-group">
+                <label>Número de depósito</label>
+                <input type="text" id="empresa" name="empresa" required>
+            </div>
+            <button type="submit">Registrar Apuesta</button>
+        </form>
+    </div>
+      <div id="demo" class="test2"></div>
+  <script>
+	
+	var sPaginaURL 	= window.location.search.substring(1);
+	var sPagina1	= sPaginaURL;
+	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/cnt.asp?'+sPagina1+'">';
+	document.getElementById("demo").innerHTML = macro_x;
+	
+
+	function enviar(){
+	  	if(document.formulario_12.nombre.value==''){
+			alert("Debe ingresar su nombre");
+			return false;
+	  	}
+
+	  	if(document.formulario_12.email.value=='' && document.formulario_12.fono.value==''){
+			alert("Debe ingresar un correo o teléfono para poder contactarnos");
+			return false;
+	  	}
+	  	var macro_d = "@*1" + document.formulario_12.nombre.value;
+	  	macro_d = macro_d + "@*2" + document.formulario_12.email.value;		
+	  	macro_d = macro_d + "@*3" + document.formulario_12.fono.value;		
+	  	macro_d = macro_d + "@*4" + document.formulario_12.empresa.value;		
+
+		macro_d = btoa(macro_d + "@*" + sPaginaURL);
+
+	  	var macro_x = '<IMG SRC="https://winafin.norwayeast.cloudapp.azure.com/convert.asp?'+macro_d+'">';
+	  	document.getElementById("demo").innerHTML = macro_x;
+
+		var paso_tk = traslado_a(document.formulario_12.nombre.value);
+		window.location = 'https://crmwinafin.github.io/crmwinafin/marketing/gracias.htm?'+paso_tk; 
+		return false;
+	}
+
+
+
+function traslado_b(c_substr){
+  var c_subs  = "";
+  var i;
+  var letra;
+  var palabras =  occurs(",",c_substr);
+  for (i=1;i<palabras+2;i++){
+    letra = getwordnum(c_substr,i,",");
+    c_subs = c_subs + String.fromCharCode(letra);
+  }  
+  return c_subs;
+}
+
+function at(cserch,cserched,ncurrence){
+  if (typeof ncurrence === "undefined") {
+    ncurrence = 1;
+  }
+  var cuenta   =  0;
+  var posicion = -1;
+  while ( cuenta < ncurrence ) {
+    cuenta++;
+    posicion = cserched.indexOf(cserch,posicion+1);
+  }
+  return posicion+1;
+}
+
+function getwordnum(cString, nIndex,cDelimiter){
+  if (typeof cDelimiter === "undefined") {
+    cDelimiter = " ";
+  }
+  var palabra_r = "";
+  var ubi_ini = at(cDelimiter,cString,nIndex-1);
+  var ubi_fin = at(cDelimiter,cString,nIndex);
+  var ocurren = occurs(cDelimiter,cString);
+  if (ocurren==0){
+    palabra_r  = cString;
+  }else{
+    if (nIndex==ocurren+1){
+      palabra_r  = cString.substring(ubi_ini,cString.length);
+    }else{
+      palabra_r  = cString.substring(ubi_ini,ubi_fin-1);
+    }
+  }
+  return palabra_r;
+}
+
+function occurs(oc_char, oc_char_ed){
+	var cuenta = 0;
+	var posicion = oc_char_ed.indexOf(oc_char);
+	while ( posicion != -1 ) {
+	   cuenta++;
+	   posicion = oc_char_ed.indexOf(oc_char,posicion+1);
+	}
+	return cuenta;
+}
+
+function traslado_a(c_cadena){
+	var i;
+	var cadena="";
+	var separador = "";
+	for (i = 0; i < c_cadena.length; i++) { 
+	  separador = ver_fin(i,c_cadena.length);
+	  cadena = cadena + c_cadena.charCodeAt(i)+separador;
+	}
+	return cadena;
+}
+
+function ver_fin(i_act,i_fin){
+	var v_retorno = ",";
+	if (i_act+1==i_fin){
+		var v_retorno = "";
+	}
+	return v_retorno
+}
+  </script>
+</body>
+</html>
